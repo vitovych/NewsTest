@@ -239,11 +239,11 @@ open class UISideMenuNavigationController: UINavigationController {
             return
         }
         
-        NotificationCenter.default.removeObserver(self.transition, name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.removeObserver(self.transition, name: UIApplication.didEnterBackgroundNotification, object: nil)
         coordinator.animate(alongsideTransition: { (context) in
             self.transition.presentMenuStart()
         }) { (context) in
-            NotificationCenter.default.addObserver(self.transition, selector:#selector(SideMenuTransition.handleNotification), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+            NotificationCenter.default.addObserver(self.transition, selector:#selector(SideMenuTransition.handleNotification), name: UIApplication.didEnterBackgroundNotification, object: nil)
         }
     }
     

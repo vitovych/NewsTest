@@ -31,14 +31,14 @@ class ViewController: UIViewController {
         self.tableView.delegate = self
     
         refreshControl.tintColor = UIColor.white
-        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
         self.tableView.addSubview(refreshControl)
         
         self.searchBar.delegate = self
         
         self.getDataForTableView()
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 200;
         
         self.tableView.register(UINib (nibName: "topTableViewCell", bundle: nil), forCellReuseIdentifier: "topCell")
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         if network.reachability.connection != .none {
             client.getDataFromServer()
         } else {
-            var alert = UIAlertView(title: "No Internet Connection", message: "Please connect to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Please connect to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
     }
@@ -123,13 +123,13 @@ extension ViewController: UITableViewDataSource{
         if (indexPath.section == 0)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "topCell", for: indexPath) as? topTableViewCell
-            cell?.selectionStyle = UITableViewCellSelectionStyle.none
+            cell?.selectionStyle = UITableViewCell.SelectionStyle.none
             
             cell?.reloadCollection(isNeedReload: self.isNeedReloadCollectionView)
             return cell!
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as? tableViewCell
-            cell?.selectionStyle = UITableViewCellSelectionStyle.none
+            cell?.selectionStyle = UITableViewCell.SelectionStyle.none
             
             cell?.configurate(id: indexPath.section - 1, isSearch : self.isSearch)
             return cell!

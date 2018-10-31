@@ -47,7 +47,7 @@ class topTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionV
         let layout = self.collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         let cellWidthIncludingSpacing = (collectionView.frame.size.width) + layout.minimumLineSpacing
         var offset = targetContentOffset.pointee
-        var index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
+        let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
         let roundedIndex = round(index)
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         pageView.currentPage = Int(roundedIndex)

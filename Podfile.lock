@@ -7,10 +7,10 @@ PODS:
   - SideMenu (4.0.0)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.7)
   - ReachabilitySwift
   - SDWebImage (~> 4.0)
-  - SideMenu
+  - SideMenu (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -25,6 +25,6 @@ SPEC CHECKSUMS:
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SideMenu: 70ee5657df63ec3382660ec4ef470bf1cf5db07d
 
-PODFILE CHECKSUM: 7212229242b717d2983ba6de400e1ccac96286e7
+PODFILE CHECKSUM: 6a63283c812b148b048f1dc3d428e29279cf75a4
 
 COCOAPODS: 1.5.3
